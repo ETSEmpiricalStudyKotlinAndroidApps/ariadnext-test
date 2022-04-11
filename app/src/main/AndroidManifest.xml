@@ -9,7 +9,7 @@
         android:name=".AriadNextApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ariadnexttest" >
+        android:theme="@style/Theme.ariadNextTheme" >
 
     <activity
         android:name="com.ariadnext.client.presentation.activity.MainActivity"
