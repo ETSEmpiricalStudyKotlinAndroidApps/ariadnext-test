@@ -6,4 +6,10 @@
 
     <!--Margin-->
     <dimen name="margin_10dp">10dp</dimen>
+
+    <!--Card view-->
+    <dimen name="card_view_radius">20dp</dimen>
+
+    <!--Text size-->
+    <dimen name="text_size_16sp">16sp</dimen>
 </resources>
