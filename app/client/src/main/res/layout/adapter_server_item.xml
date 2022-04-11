@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ariadnext.server.data.models.MessageData" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10dp"
+        android:clipToPadding="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            app:cardBackgroundColor="?colorPrimary"
+            app:cardCornerRadius="@dimen/card_view_radius"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.messageText}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16sp"
+                android:padding="@dimen/padding_10dp"
+                tools:text="server" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

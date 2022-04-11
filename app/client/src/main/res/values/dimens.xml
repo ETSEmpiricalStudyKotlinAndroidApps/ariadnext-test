@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Padding-->
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
+
+    <!--Margin-->
+    <dimen name="margin_10dp">10dp</dimen>
+
+    <!--Card view-->
+    <dimen name="card_view_radius">20dp</dimen>
+
+    <!--Text size-->
+    <dimen name="text_size_16sp">16sp</dimen>
+</resources>

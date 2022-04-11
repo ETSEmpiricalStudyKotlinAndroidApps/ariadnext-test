@@ -6,8 +6,21 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        android:name=".AriadNextApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ariadnexttest" />
+        android:theme="@style/Theme.ariadNextTheme" >
+
+    <activity
+        android:name="com.ariadnext.client.presentation.activity.MainActivity"
+        android:exported="true">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+    </activity>
+    </application>
 
 </manifest>

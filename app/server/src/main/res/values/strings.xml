@@ -1,0 +1,4 @@
+<resources>
+    <string name="response_timer">Response in %s second</string>
+    <string name="response_for">Response for -> %s</string>
+</resources>

@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ariadnext-test"
 include ':app'
+include ':app:client'
+include ':app:server'
