@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
             val mainViewModel: MainActivityViewModel by viewModels()
 
             mainActivityRecyclerChat.adapter = messageAdapter
+            mainActivityRecyclerChat.itemAnimator = null
+
 
             lifecycle.coroutineScope.launchWhenCreated {
                 mainViewModel.chatListFlow.collect {
