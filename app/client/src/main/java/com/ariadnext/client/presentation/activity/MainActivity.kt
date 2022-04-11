@@ -32,8 +32,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             mainChatSendMessageButton.setOnClickListener {
-                mainViewModel.sendMessage(mainChatMessageEditText.text.toString())
-                mainChatMessageEditText.setText("")
+                if (mainChatMessageEditText.text.toString().isNotEmpty()) {
+                    mainViewModel.sendMessage(mainChatMessageEditText.text.toString())
+                    mainChatMessageEditText.setText("")
+                }
             }
 
             setContentView(root)
