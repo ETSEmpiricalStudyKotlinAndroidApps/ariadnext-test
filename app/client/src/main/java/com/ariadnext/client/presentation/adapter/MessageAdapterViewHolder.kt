@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.ariadnext.client.databinding.AdapterClientItemBinding
 import com.ariadnext.client.databinding.AdapterServerItemBinding
-import com.ariadnext.client.presentation.models.MessageData
+import com.ariadnext.server.data.models.MessageData
 
 /**
  *  Base View holder.

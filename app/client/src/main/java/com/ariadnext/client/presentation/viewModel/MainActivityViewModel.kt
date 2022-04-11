@@ -2,17 +2,23 @@ package com.ariadnext.client.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ariadnext.client.presentation.models.MessageData
+import com.ariadnext.server.data.models.MessageData
+import com.ariadnext.server.domain.usecases.InitClientServerChannelUseCase
+import com.ariadnext.server.domain.usecases.RetrieveFromServerUseCase
+import com.ariadnext.server.domain.usecases.SendToServerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-
+    private val sendToServerUseCase: SendToServerUseCase,
+    private val retrieveFromServerUseCase: RetrieveFromServerUseCase,
+    private val initClientServerChannel: InitClientServerChannelUseCase,
 ) : ViewModel() {
 
     /** Chat list. */
@@ -25,7 +31,28 @@ class MainActivityViewModel @Inject constructor(
     val chatListFlow: StateFlow<List<MessageData>>
         get() = _chatListFlow
 
-    
+    init {
+        viewModelScope.launch {
+            retrieveFromServerUseCase.invoke().collect { result ->
+                val editList = chatListMessage.map {
+                    when (it.id) {
+                        result.keys.first() -> it.copy(isSeen = true)
+                        else -> it
+                    }
+                }
+
+                chatListMessage = editList as ArrayList<MessageData>
+                chatListMessage.add(result.values.first())
+                _chatListFlow.emit(chatListMessage.toList())
+            }
+        }
+        viewModelScope.launch {
+            initClientServerChannel.invoke()
+        }
+
+
+    }
+
     /**
      * SendMessage to server.
      * @param messageText the message text.
@@ -42,6 +69,7 @@ class MainActivityViewModel @Inject constructor(
                 )
             chatListMessage.add(currentMessage)
             _chatListFlow.emit(chatListMessage.toList())
+            sendToServerUseCase.invoke(currentMessage)
 
         }
     }

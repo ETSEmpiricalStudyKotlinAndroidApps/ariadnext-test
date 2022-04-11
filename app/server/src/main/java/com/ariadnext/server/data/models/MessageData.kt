@@ -1,4 +1,4 @@
-package com.ariadnext.client.presentation.models
+package com.ariadnext.server.data.models
 
 /**
  * Message data related to data object.

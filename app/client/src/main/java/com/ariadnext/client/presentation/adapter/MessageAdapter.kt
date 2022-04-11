@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.ariadnext.client.databinding.AdapterClientItemBinding
 import com.ariadnext.client.databinding.AdapterServerItemBinding
 import com.ariadnext.client.presentation.extension.getLayoutInflater
-import com.ariadnext.client.presentation.models.MessageData
+import com.ariadnext.server.data.models.MessageData
 
 /**
  * Chat message adapter.
